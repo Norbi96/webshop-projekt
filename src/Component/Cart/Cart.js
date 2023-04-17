@@ -9,7 +9,6 @@ export default function Cart() {
 
   const cartItems = cart.map(item => item.quantity)
 
-  console.log(cartItems);
 
   const veg = cartItems.reduce((acc, curr) => acc + curr, 0)
 

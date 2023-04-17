@@ -4,22 +4,37 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
+
 }
 
 .products .box {
   border: 2px solid rgb(76, 117, 129);
+  max-width: 254px;
+  white-space: normal;
 
 }
+
 
 .products .inside-box {
   display: flex;
   flex-direction: column;
   background-color: white;
   padding-left: 1rem;
+
 }
 
+.products .inside-box h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 200px;
+}
 .products .inside-box p {
-
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .products .prodbtns {

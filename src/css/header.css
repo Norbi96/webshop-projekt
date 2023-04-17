@@ -81,3 +81,24 @@
   'GRAD' 0,
   'opsz' 48
 }
+
+.fo {
+ position: relative;
+}
+.fo .amount {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+  border-radius: 100000px;
+  top: 17px;
+  left: calc(100% + -25px);
+  height: 12px;
+  min-width: 7px;
+  padding: 0 3px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border: 1px solid white;
+}

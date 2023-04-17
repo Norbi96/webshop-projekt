@@ -35,6 +35,14 @@ export default function Products() {
 
   }
 
+  function productNameLength(product) {
+    let name = ''
+    for (let i = 0; i < 20; i++) {
+      name += product.name[i]
+    }
+    return name + '...'
+  }
+
   return (
     <>
       <div className='products'>
@@ -42,7 +50,7 @@ export default function Products() {
           <div className='box'>
             <img src={product.imgsrc} alt={product.name} />
             <div className='inside-box'>
-              <h2>{product.name}</h2>
+              <p>{product.name.length > 20 ? productNameLength(product) : product.name} </p>
               <p>Ára: {product.price} Ft</p>
               <p>Raktáron: {product.quantity} db</p>
             </div><div className='prodbtns'>

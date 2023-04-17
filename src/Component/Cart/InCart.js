@@ -47,6 +47,14 @@ export default function InCart() {
 
   setTotal(mtotal)
 
+  function cartNameLength(item) {
+    let name = ''
+    for (let i = 0; i < 10; i++) {
+      name += item.name[i]
+    }
+    return name + '...'
+  }
+
   return (
     <div className='in-cart'>
       <h2>Cart:</h2>
@@ -55,7 +63,7 @@ export default function InCart() {
         {cart.map(item =>
           <>
             <div className='cart-item'>
-              <p>{item.name} ára:{item.price} db: {item.quantity} <button onClick={() => addQuantity(item.id)}>+</button><button onClick={() => removeQuantity(item.id)}>-</button></p>
+              <p>{item.name.length > 10 ? cartNameLength(item) : item.name} ára:{item.price} db: {item.quantity} <p><button onClick={() => addQuantity(item.id)}>+</button><button onClick={() => removeQuantity(item.id)}>-</button></p></p>
             </div>
           </>)}
         <p>Total: {total}Ft</p>

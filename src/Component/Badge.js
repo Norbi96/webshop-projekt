@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import { cartOpen } from './Cart/CartOpen'
 import { badgeContext } from './BadgeContext'
 import { cartContext } from './Cart/cartContext'
+import '../css/header.css'
 
-export default function Badge() {
-  const { isOpenCart, setIsOpenCart } = useContext(cartOpen)
+export default function Badge({ content, children, max = 99, className }) {
   const { badge, setBadge } = useContext(badgeContext)
 
 
@@ -26,9 +26,12 @@ export default function Badge() {
   return (
     <>
       <div className='fo' style={{ position: 'relative' }}>
+        {children}
+        {!!content && (
+          <span className="amount">{content <= max ? content : max + "+"}</span>
+        )}
 
-        {badge > 0 && <span style={style}>{badge}</span>}
-        <button onClick={() => setIsOpenCart(!isOpenCart)}><span class="material-symbols-outlined">shopping_cart</span></button>
+        {/* {badge > 0 && <span style={style}>{badge}</span>} */}
       </div>
     </>
 

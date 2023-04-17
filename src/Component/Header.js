@@ -2,9 +2,11 @@ import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import Badge from './Badge'
 import { badgeContext } from './BadgeContext'
+import { cartOpen } from './Cart/CartOpen'
 
 export default function Header() {
   const { badge, setBadge } = useContext(badgeContext)
+  const { isOpenCart, setIsOpenCart } = useContext(cartOpen)
 
 
   return (
@@ -18,7 +20,10 @@ export default function Header() {
         <NavLink to="/products">Products</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact</NavLink>
-        <Badge badgeContent={badge} color="primary" />
+        <Badge content={badge} max={99}>
+          <button onClick={() => setIsOpenCart(!isOpenCart)}><span class="material-symbols-outlined">shopping_cart</span></button>
+
+        </Badge>
 
       </nav>
 

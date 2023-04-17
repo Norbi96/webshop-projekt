@@ -15,6 +15,7 @@ import { cartOpen } from './Component/Cart/CartOpen';
 import { cartContext } from './Component/Cart/cartContext';
 import Cart from './Component/Cart/Cart';
 import { cartTotalContext } from './Component/Cart/CartTotalContext';
+import { badgeContext } from './Component/BadgeContext';
 
 
 const router = createBrowserRouter([
@@ -99,21 +100,23 @@ function App() {
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState([])
+  const [badge, setBadge] = useState(null)
 
 
   return (
-
-    <cartTotalContext.Provider value={{ total, setTotal }}>
-      <cartContext.Provider value={{ cart, setCart }}>
-        <cartOpen.Provider value={{ isOpenCart, setIsOpenCart }}>
-          <productContext.Provider value={{ products, setProducts }}>
-            <todosContext.Provider value={{ todos, setTodos }}>
-              <RouterProvider router={router} />
-            </todosContext.Provider>
-          </productContext.Provider>
-        </cartOpen.Provider>
-      </cartContext.Provider>
-    </cartTotalContext.Provider>
+    <badgeContext.Provider value={{ badge, setBadge }}>
+      <cartTotalContext.Provider value={{ total, setTotal }}>
+        <cartContext.Provider value={{ cart, setCart }}>
+          <cartOpen.Provider value={{ isOpenCart, setIsOpenCart }}>
+            <productContext.Provider value={{ products, setProducts }}>
+              <todosContext.Provider value={{ todos, setTodos }}>
+                <RouterProvider router={router} />
+              </todosContext.Provider>
+            </productContext.Provider>
+          </cartOpen.Provider>
+        </cartContext.Provider>
+      </cartTotalContext.Provider>
+    </badgeContext.Provider>
 
   );
 }

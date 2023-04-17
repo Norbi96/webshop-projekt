@@ -9,8 +9,8 @@ export default function Badge() {
 
   let style = {
     position: 'absolute',
-    top: 0,
-    right: 0,
+    top: '0.5rem',
+    right: '0.3rem',
     background: 'firebrick',
     color: 'white',
     borderRadius: '50%',

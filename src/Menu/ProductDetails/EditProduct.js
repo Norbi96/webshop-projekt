@@ -9,7 +9,7 @@ export default function EditProduct() {
 
   const { products, setProducts } = useContext(productContext);
 
-  const find = products.filter(prod => prod.id == params.id && prod)
+  const find = products.filter(prod => prod.id === params.id && prod)
 
   const navigate = useNavigate()
 

@@ -5,7 +5,7 @@ import InCart from './InCart'
 
 export default function Cart() {
 
-  const { cart, setCart } = useContext(cartContext)
+  const { cart } = useContext(cartContext)
 
   const cartItems = cart.map(item => item.quantity)
 

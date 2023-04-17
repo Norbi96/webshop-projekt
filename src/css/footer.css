@@ -1,0 +1,20 @@
+.footer {
+  bottom: 0;
+  padding: 6rem;
+  background-color: #0e1011;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer a {
+  padding: 0 3rem;
+  color: whitesmoke;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  color:rgb(76, 117, 129);
+  transition: 0.3s all;
+}

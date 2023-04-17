@@ -1,0 +1,57 @@
+
+h1 {
+  text-align: center;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ text-align: center;
+ background-color: rgb(162, 188, 210);
+ padding: 1rem;
+ color:white;
+ order: 3;
+}
+
+.todo .boxes{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.todo .boxes button {
+  background-color: rgb(174, 21, 10);
+  color:whitesmoke;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.todo:hover {
+  background-color: rgb(144, 147, 200);
+  color: white;
+  cursor: pointer;
+}
+
+.add-todo {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-todo input {
+  padding: 0.5rem 0;
+  width: 400px;
+}
+.add-todo button {
+  padding: 0.5rem 2rem;
+  background-color: rgb(35, 190, 35);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}

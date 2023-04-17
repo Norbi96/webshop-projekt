@@ -1,0 +1,11 @@
+.cart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: rgb(230, 223, 173);
+  color:rgb(83, 67, 67);
+  transition: 1s all;
+  z-index: 1000;
+}

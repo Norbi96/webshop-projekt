@@ -13,9 +13,26 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+  overflow: auto;
+
 
 }
+.cart .in-cart h2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+}
+.cart .in-cart h2 button{
+  background-color: rgb(240, 76, 76);
+  cursor: pointer;
+  color:white;
+  transition: 0.3s all;
+}
+.cart .in-cart h2 button:hover{
+  cursor: pointer;
+  color:black;
+}
 .cart .in-cart .cart-items p {
   display: flex;
   justify-content: center;
@@ -34,5 +51,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+}
+.cart .in-cart .cart-items .cart-item .plus{
+  background-color: rgb(82, 169, 82);
+  border: none;
+  cursor: pointer;
+}
+.cart .in-cart .cart-items .cart-item .minus{
+  background-color: rgb(196, 140, 87);
+  border: none;
+  cursor: pointer;
+}
+.cart .in-cart .cart-items .cart-item .plus:hover{
+  background-color: rgb(97, 201, 97);
+  border: none;
+}
+.cart .in-cart .cart-items .cart-item .minus:hover{
+  background-color: rgb(211, 150, 93);
+  border: none;
+
 
 }

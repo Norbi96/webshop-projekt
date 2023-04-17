@@ -57,16 +57,19 @@ export default function InCart() {
 
   return (
     <div className='in-cart'>
-      <h2>Cart:</h2>
-      <button onClick={() => setCart([])}>Delete Cart</button>
+      <h2>Cart:
+        <button onClick={() => setCart([])}><span class="material-symbols-outlined">
+          remove_shopping_cart
+        </span></button>
+      </h2>
       <div className='cart-items'>
         {cart.map(item =>
           <>
             <div className='cart-item'>
-              <p>{item.name.length > 10 ? cartNameLength(item) : item.name} ára:{item.price} db: {item.quantity} <p><button onClick={() => addQuantity(item.id)}>+</button><button onClick={() => removeQuantity(item.id)}>-</button></p></p>
+              <p>{item.name.length > 10 ? cartNameLength(item) : item.name} ára:{item.price} db: {item.quantity} <p><button className='plus' onClick={() => addQuantity(item.id)}>+</button><button className='minus' onClick={() => removeQuantity(item.id)}>-</button></p></p>
             </div>
           </>)}
-        <p>Total: {total}Ft</p>
+        <p style={{ fontSize: '1.3em', color: 'purple' }}>Total: {total}Ft</p>
       </div>
 
     </div>

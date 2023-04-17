@@ -9,7 +9,7 @@ export default function ProductDetails() {
   const params = useParams()
   const { products } = useContext(productContext)
 
-  const find = products.filter(prod => prod.id === params.id && prod)
+  const find = products.filter(prod => prod.id == params.id && prod)
 
   return (
     <div>

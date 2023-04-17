@@ -11,7 +11,7 @@ import { cartOpen } from "./Cart/CartOpen";
 
 export default function ContentLayout() {
 
-  const { isOpenCart, setIsOpenCart } = useContext(cartOpen)
+  const { isOpenCart } = useContext(cartOpen)
 
   return (
     <div className="wrapper">

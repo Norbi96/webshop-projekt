@@ -1,16 +1,10 @@
 import React, { useContext } from 'react'
 import { cartContext } from './cartContext'
-import { cartOpen } from './CartOpen'
 import '../../css/cart.css'
 import InCart from './InCart'
-import { productContext } from '../../Menu/ProductDetails/ProductContext'
-import { useParams } from 'react-router-dom'
 
 export default function Cart() {
 
-
-
-  const { products, setProducts } = useContext(productContext)
   const { cart, setCart } = useContext(cartContext)
 
   const cartItems = cart.map(item => item.quantity)

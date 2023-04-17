@@ -68,7 +68,7 @@ export default function Home() {
   function deleteTodo(todo) {
     const id = todo
 
-    const newTodo = todos.filter(td => td.id != id)
+    const newTodo = todos.filter(td => td.id !== id)
 
     setTodos(newTodo)
   }

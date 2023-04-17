@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { cartOpen } from './Cart/CartOpen'
-import Cart from './Cart/Cart'
 
 export default function Header() {
 

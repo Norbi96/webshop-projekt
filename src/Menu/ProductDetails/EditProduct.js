@@ -40,7 +40,7 @@ export default function EditProduct() {
     ]
     )
 
-    navigate('/products')
+    navigate(-1)
   };
 
 

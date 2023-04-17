@@ -46,6 +46,10 @@ export default function EditProduct() {
     navigate('/products')
   }
 
+  function changeHandler(e, fgv) {
+    fgv(e.target.value)
+  }
+
   return (
     <>
 
@@ -53,25 +57,25 @@ export default function EditProduct() {
         <p>
           <label>
             Product name:
-            <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
+            <input type='text' value={name} onChange={(e) => changeHandler(e, setName)} />
           </label>
         </p>
         <p>
           <label>
             Product price:
-            <input type='text' value={price} onChange={(e) => setPrice(e.target.value)} />
+            <input type='text' value={price} onChange={(e) => changeHandler(e, setPrice)} />
           </label>
         </p>
         <p>
           <label>
             Product amount:
-            <input type='text' value={amount} onChange={(e) => setAmount(e.target.value)} />
+            <input type='text' value={amount} onChange={(e) => changeHandler(e, setAmount)} />
           </label>
         </p>
         <p>
           <label>
             Product imgsrc:
-            <input type='text' value={img} onChange={(e) => setImg(e.target.value)} />
+            <input type='text' value={img} onChange={(e) => changeHandler(e, setImg)} />
           </label>
         </p>
         <div className='product-detail-btn'>

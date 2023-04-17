@@ -2,34 +2,28 @@ import React, { useContext, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { productContext } from './ProductContext';
 import '../../css/product.css';
-import { nameContext } from './NameContext';
-import { priceContext } from './PriceContext';
-import { amountContext } from './AmountContext';
-import { imgContext } from './ImgContext';
 
 export default function EditProduct() {
 
-
-  const params = useParams();
+  const { id } = useParams();
 
   const { products, setProducts } = useContext(productContext);
+  console.log('id', id);
+  const find = products.find(prod => prod.id == id)
 
-  const find = products.filter(prod => prod.id === params.id && prod)
 
   const navigate = useNavigate()
-
-  const { name, setName } = useContext(nameContext)
-  const { price, setPrice } = useContext(priceContext)
-  const { amount, setAmount } = useContext(amountContext)
-  const { img, setImg } = useContext(imgContext)
-
+  const [name, setName] = useState(find.name)
+  const [price, setPrice] = useState(find.price)
+  const [amount, setAmount] = useState(find.quantity)
+  const [img, setImg] = useState(find.imgsrc)
 
   function editProductHandler() {
 
-    const idx = products.indexOf(find[0])
+    const idx = products.indexOf(find)
 
     const update = {
-      ...find[0],
+      ...find,
       name: name,
       price: Number(price),
       quantity: Number(amount),
@@ -46,19 +40,9 @@ export default function EditProduct() {
     navigate('/products')
   }
 
-  function changeNameHandler(e) {
-    setName(e.target.value)
+  function nameChangeHandler(e) {
+    return setName(e.target.value)
   }
-  function changePriceHandler(e) {
-    setPrice(e.target.value)
-  }
-  function changeAmountHandler(e) {
-    setAmount(e.target.value)
-  }
-  function changeImgHandler(e) {
-    setImg(e.target.value)
-  }
-
   return (
     <>
 
@@ -66,25 +50,25 @@ export default function EditProduct() {
         <p>
           <label>
             Product name:
-            <input type='text' value={name} onChange={changeNameHandler} />
+            <input type='text' value={name} onChange={nameChangeHandler} />
           </label>
         </p>
         <p>
           <label>
             Product price:
-            <input type='text' value={price} onChange={changePriceHandler} />
+            <input type='text' value={price} onChange={(e) => setPrice(e.target.value)} />
           </label>
         </p>
         <p>
           <label>
             Product amount:
-            <input type='text' value={amount} onChange={changeAmountHandler} />
+            <input type='text' value={amount} onChange={(e) => setAmount(e.target.value)} />
           </label>
         </p>
         <p>
           <label>
             Product imgsrc:
-            <input type='text' value={img} onChange={changeImgHandler} />
+            <input type='text' value={img} onChange={(e) => setImg(e.target.value)} />
           </label>
         </p>
         <div className='product-detail-btn'>

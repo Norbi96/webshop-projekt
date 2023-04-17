@@ -6,7 +6,7 @@ import { cartContext } from '../Component/Cart/cartContext';
 export default function Products() {
 
 
-  const { products } = useContext(productContext)
+  const { products, setProdcuts } = useContext(productContext)
 
   const { cart, setCart } = useContext(cartContext)
 

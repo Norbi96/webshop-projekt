@@ -10,7 +10,7 @@ export default function DeleteProduct() {
 
   const navigate = useNavigate()
 
-  const newProduct = products.filter(prod => prod.id !== params.id)
+  const newProduct = products.filter(prod => prod.id != params.id)
 
   console.log(newProduct);
 

@@ -45,7 +45,6 @@ export default function EditProduct() {
   }
   return (
     <>
-
       <div className='product-detail'>
         <p>
           <label>

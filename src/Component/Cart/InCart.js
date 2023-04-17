@@ -21,7 +21,7 @@ export default function InCart() {
     const find = cart.find(item => item.id === id)
     const idx = cart.indexOf(find)
 
-    if (find.quantity > 0) {
+    if (find.quantity > 1) {
       const update = { ...find, quantity: find.quantity - 1 }
       setCart([
         ...cart.slice(0, idx),

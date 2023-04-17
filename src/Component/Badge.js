@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { cartOpen } from './Cart/CartOpen'
 import { badgeContext } from './BadgeContext'
+import { cartContext } from './Cart/cartContext'
 
 export default function Badge() {
   const { isOpenCart, setIsOpenCart } = useContext(cartOpen)
@@ -15,8 +16,12 @@ export default function Badge() {
     color: 'white',
     borderRadius: '50%',
     padding: '0.3rem',
-    fontSize: '0.6em'
+    fontSize: '0.6em',
+    width: '25px',
+    display: 'flex',
+    justifyContent: 'center'
   }
+
 
   return (
     <>

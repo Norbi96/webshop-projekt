@@ -3,12 +3,23 @@ import '../css/product.css'
 import { Link } from 'react-router-dom';
 import { productContext } from './ProductDetails/ProductContext';
 import { cartContext } from '../Component/Cart/cartContext';
+import { badgeContext } from '../Component/BadgeContext';
 export default function Products() {
 
 
   const { products, setProdcuts } = useContext(productContext)
 
+  const { badge, setBadge } = useContext(badgeContext)
+
   const { cart, setCart } = useContext(cartContext)
+
+
+  const cartItems = cart.map(item => item.quantity)
+
+
+  const veg = cartItems.reduce((acc, curr) => acc + curr, 0)
+
+  setBadge(veg)
 
   function addToCart(id) {
 
@@ -20,6 +31,8 @@ export default function Products() {
       setCart([...cart, { ...find, quantity: 1 }])
       isInCart = true
     }
+
+
   }
 
   return (

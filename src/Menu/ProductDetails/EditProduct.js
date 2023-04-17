@@ -2,8 +2,13 @@ import React, { useContext, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { productContext } from './ProductContext';
 import '../../css/product.css';
+import { nameContext } from './NameContext';
+import { priceContext } from './PriceContext';
+import { amountContext } from './AmountContext';
+import { imgContext } from './ImgContext';
 
 export default function EditProduct() {
+
 
   const params = useParams();
 
@@ -13,10 +18,11 @@ export default function EditProduct() {
 
   const navigate = useNavigate()
 
-  const [name, setName] = useState(find[0].name)
-  const [price, setPrice] = useState(find[0].price)
-  const [amount, setAmount] = useState(find[0].quantity)
-  const [img, setImg] = useState(find[0].imgsrc)
+  const { name, setName } = useContext(nameContext)
+  const { price, setPrice } = useContext(priceContext)
+  const { amount, setAmount } = useContext(amountContext)
+  const { img, setImg } = useContext(imgContext)
+
 
   function editProductHandler() {
 

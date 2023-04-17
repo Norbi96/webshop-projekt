@@ -15,7 +15,10 @@ import { cartOpen } from './Component/Cart/CartOpen';
 import { cartContext } from './Component/Cart/cartContext';
 import Cart from './Component/Cart/Cart';
 import { cartTotalContext } from './Component/Cart/CartTotalContext';
-
+import { nameContext } from './Menu/ProductDetails/NameContext';
+import { priceContext } from './Menu/ProductDetails/PriceContext';
+import { amountContext } from './Menu/ProductDetails/AmountContext';
+import { imgContext } from './Menu/ProductDetails/ImgContext';
 
 const router = createBrowserRouter([
   {
@@ -99,20 +102,32 @@ function App() {
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState([])
+  const [name, setName] = useState(null)
+  const [price, setPrice] = useState(null)
+  const [amount, setAmount] = useState(null)
+  const [img, setImg] = useState(null)
 
 
   return (
-    <cartTotalContext.Provider value={{ total, setTotal }}>
-      <cartContext.Provider value={{ cart, setCart }}>
-        <cartOpen.Provider value={{ isOpenCart, setIsOpenCart }}>
-          <productContext.Provider value={{ products, setProducts }}>
-            <todosContext.Provider value={{ todos, setTodos }}>
-              <RouterProvider router={router} />
-            </todosContext.Provider>
-          </productContext.Provider>
-        </cartOpen.Provider>
-      </cartContext.Provider>
-    </cartTotalContext.Provider>
+    <imgContext.Provider value={{ img, setImg }}>
+      <amountContext.Provider value={{ amount, setAmount }}>
+        <priceContext.Provider value={{ price, setPrice }}>
+          <nameContext.Provider value={{ name, setName }}>
+            <cartTotalContext.Provider value={{ total, setTotal }}>
+              <cartContext.Provider value={{ cart, setCart }}>
+                <cartOpen.Provider value={{ isOpenCart, setIsOpenCart }}>
+                  <productContext.Provider value={{ products, setProducts }}>
+                    <todosContext.Provider value={{ todos, setTodos }}>
+                      <RouterProvider router={router} />
+                    </todosContext.Provider>
+                  </productContext.Provider>
+                </cartOpen.Provider>
+              </cartContext.Provider>
+            </cartTotalContext.Provider>
+          </nameContext.Provider>
+        </priceContext.Provider>
+      </amountContext.Provider>
+    </imgContext.Provider>
   );
 }
 

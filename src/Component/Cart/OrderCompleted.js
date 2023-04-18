@@ -1,8 +1,10 @@
 import React from 'react'
-import { useContext } from 'react'
-import { cartContext } from './cartContext'
+
+import { useNavigate } from 'react-router-dom'
 
 export default function OrderCompleted() {
+
+  const navigate = useNavigate()
 
   const date = new Date();
 
@@ -12,12 +14,11 @@ export default function OrderCompleted() {
   const hour = date.getHours()
   const minutes = date.getMinutes()
 
-
-
+  const realDate = year + '-' + String(month).padStart(2, '0') + '-' + String(day).padStart(2, '0') + ' ' + String(hour).padStart(2, '0') + ':' + String(minutes).padStart(2, '0')
 
   return (
     <div>
-      Rendelés leadva.{year + '-' + '0' + month + '-' + day + ' ' + hour + ':' + minutes}
+      Rendelés leadva.{realDate}
     </div>
   )
 }

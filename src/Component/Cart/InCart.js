@@ -73,7 +73,6 @@ export default function InCart() {
     let rnd = getRandomArbitrary(40000, 60000)
     setOrder(cart)
     setIsOpenCart(!isOpenCart)
-    setBadge(null)
     navigate(`/order/${rnd}`)
 
 

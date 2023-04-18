@@ -8,12 +8,15 @@
   padding: 0 0.3rem;
   margin: 0;
 }
+.order-complete > :first-child {
+  font-size: 1.2em;
+}
 .order-complete ul li {
   padding: 0.4rem;
   margin: 0;
 }
 
-.order-complete ul:nth-child(odd) {
+.order-complete ul:nth-child(even) {
   background-color: lightyellow;
 }
 
@@ -27,10 +30,15 @@
   margin: 0;
 }
 
+.order-total p {
+  font-size: 1.3em;
+}
+
 .order-complete .checkout {
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
 }
 .order-complete .checkout button {
   margin: 1rem;

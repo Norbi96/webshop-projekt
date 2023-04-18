@@ -4,6 +4,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { cartTotalContext } from './CartTotalContext'
 import '../../css/order.css'
 import { cartContext } from './cartContext'
+import { badgeContext } from '../BadgeContext'
 
 
 export default function Order() {
@@ -16,15 +17,16 @@ export default function Order() {
   const { setCart } = useContext(cartContext)
 
   const { order, setOrder } = useContext(orderContext)
+  const { badge, setBadge } = useContext(badgeContext)
 
   function sendOrder() {
     setCart([])
+    setBadge(null)
     navigate('/order-completed')
   }
 
   return (
     <div className='order-complete'>
-      <p>Megrendelés száma: {orderno}</p>
       <ul>
         <li>Termék neve:</li>
         <li>Termék ára:</li>
@@ -41,11 +43,13 @@ export default function Order() {
 
       </ul>)}
       <div className='order-total'>
-        <p></p>
+        <p>Végösszeg:</p>
 
         <p>{total} Ft</p>
       </div>
       <div className='checkout'>
+        <p>Megrendelés száma: {orderno}</p>
+
         <button onClick={sendOrder}>Elküldés</button>
       </div>
 

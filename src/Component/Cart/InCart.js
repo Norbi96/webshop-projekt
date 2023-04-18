@@ -1,10 +1,20 @@
 import React, { useContext } from 'react'
 import { cartContext } from './cartContext'
 import { cartTotalContext } from './CartTotalContext'
+import { Link } from 'react'
 import '../../css/cart.css'
+import { orderContext } from './OrderContext'
+import { useNavigate } from 'react-router-dom'
+import { cartOpen } from './CartOpen'
+import { badgeContext } from '../BadgeContext'
+
 
 export default function InCart() {
   const { cart, setCart } = useContext(cartContext)
+  const { order, setOrder } = useContext(orderContext)
+  const { isOpenCart, setIsOpenCart } = useContext(cartOpen)
+
+  const navigate = useNavigate()
 
 
   function addQuantity(id) {
@@ -40,6 +50,7 @@ export default function InCart() {
   }
 
   const { total, setTotal } = useContext(cartTotalContext)
+  const { badge, setBadge } = useContext(badgeContext)
 
   const filter = cart.map(item => item.quantity * item.price)
 
@@ -53,6 +64,19 @@ export default function InCart() {
       name += item.name[i]
     }
     return name + '...'
+  }
+  function getRandomArbitrary(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
+  function orderProcess() {
+    let rnd = getRandomArbitrary(40000, 60000)
+    setOrder(cart)
+    setIsOpenCart(!isOpenCart)
+    setBadge(null)
+    navigate(`/order/${rnd}`)
+
+
   }
 
   return (
@@ -70,6 +94,7 @@ export default function InCart() {
             </div>
           </>)}
         <p style={{ fontSize: '1.3em', color: 'purple' }}>Total: {total}Ft</p>
+        <p><button onClick={orderProcess} >Megrendelés</button></p>
       </div>
 
     </div>

@@ -16,6 +16,10 @@ import { cartContext } from './Component/Cart/cartContext';
 import Cart from './Component/Cart/Cart';
 import { cartTotalContext } from './Component/Cart/CartTotalContext';
 import { badgeContext } from './Component/BadgeContext';
+import './css/mobile.css'
+import Order from './Component/Cart/Order';
+import { orderContext } from './Component/Cart/OrderContext';
+import OrderCompleted from './Component/Cart/OrderCompleted';
 
 
 const router = createBrowserRouter([
@@ -59,7 +63,17 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />
-      },
+      }
+      ,
+      {
+        path: '/order/:orderno',
+        element: <Order />
+      }
+      ,
+      {
+        path: '/order-completed',
+        element: <OrderCompleted />
+      }
     ],
   }
 ])
@@ -101,22 +115,25 @@ function App() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState([])
   const [badge, setBadge] = useState(null)
+  const [order, setOrder] = useState([])
 
 
   return (
-    <badgeContext.Provider value={{ badge, setBadge }}>
-      <cartTotalContext.Provider value={{ total, setTotal }}>
-        <cartContext.Provider value={{ cart, setCart }}>
-          <cartOpen.Provider value={{ isOpenCart, setIsOpenCart }}>
-            <productContext.Provider value={{ products, setProducts }}>
-              <todosContext.Provider value={{ todos, setTodos }}>
-                <RouterProvider router={router} />
-              </todosContext.Provider>
-            </productContext.Provider>
-          </cartOpen.Provider>
-        </cartContext.Provider>
-      </cartTotalContext.Provider>
-    </badgeContext.Provider>
+    <orderContext.Provider value={{ order, setOrder }}>
+      <badgeContext.Provider value={{ badge, setBadge }}>
+        <cartTotalContext.Provider value={{ total, setTotal }}>
+          <cartContext.Provider value={{ cart, setCart }}>
+            <cartOpen.Provider value={{ isOpenCart, setIsOpenCart }}>
+              <productContext.Provider value={{ products, setProducts }}>
+                <todosContext.Provider value={{ todos, setTodos }}>
+                  <RouterProvider router={router} />
+                </todosContext.Provider>
+              </productContext.Provider>
+            </cartOpen.Provider>
+          </cartContext.Provider>
+        </cartTotalContext.Provider>
+      </badgeContext.Provider>
+    </orderContext.Provider>
 
   );
 }

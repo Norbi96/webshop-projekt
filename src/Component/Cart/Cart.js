@@ -3,11 +3,13 @@ import { cartContext } from './cartContext'
 import '../../css/cart.css'
 import InCart from './InCart'
 import { badgeContext } from '../BadgeContext'
+import { cartOpen } from './CartOpen'
 
 export default function Cart() {
 
   const { cart } = useContext(cartContext)
   const { badge, setBadge } = useContext(badgeContext)
+  const { isOpenCart, setIsOpenCart } = useContext(cartOpen)
 
   const cartItems = cart.map(item => item.quantity)
 
@@ -18,6 +20,8 @@ export default function Cart() {
 
   return (
     <div className='cart'>
+      <div className='exit-cart'><button onClick={() => setIsOpenCart(!isOpenCart)}>x</button></div>
+      <br />
       {cart.length > 0 ? <p>{badge} item in the cart</p> : <p>cart is empty</p>}
       {cart.length > 0 && <InCart />}
     </div>

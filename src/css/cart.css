@@ -12,10 +12,27 @@
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 0 1rem;
   overflow: auto;
+}
+.cart::-webkit-scrollbar{
+  display: none;
+}
+.cart .exit-cart {
+position: relative;
 
-
+}
+.cart .exit-cart button {
+  position: sticky;
+  padding: 0.2rem 0.6rem;
+  background-color: black;
+  color: white;
+  border: 0;
+}
+.cart .exit-cart button:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
 }
 .cart .in-cart h2{
   display: flex;

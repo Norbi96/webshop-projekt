@@ -13,4 +13,8 @@ body {
   height: 100%;
   position: relative;
   font-family: 'Chivo Mono', monospace;
+
+}
+body::-webkit-scrollbar{
+  display: none;
 }

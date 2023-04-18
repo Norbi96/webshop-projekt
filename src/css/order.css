@@ -1,0 +1,49 @@
+
+.order-complete ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  background-color: white;
+  padding: 0 0.3rem;
+  margin: 0;
+}
+.order-complete ul li {
+  padding: 0.4rem;
+  margin: 0;
+}
+
+.order-complete ul:nth-child(odd) {
+  background-color: lightyellow;
+}
+
+.order-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  background-color: white;
+  padding: 0 0.3rem;
+  margin: 0;
+}
+
+.order-complete .checkout {
+
+  display: flex;
+  justify-content: flex-end;
+}
+.order-complete .checkout button {
+  margin: 1rem;
+  padding: 0.6rem 1.6rem;
+  background-color: rgb(42, 43, 43);
+  color: white;
+  transition: 0.3s all;
+  cursor: pointer;
+  border: none;
+  font-size: 1.2em;
+}
+
+.order-complete .checkout button:hover {
+  background-color: rgb(87, 255, 196);
+  color: black;
+}

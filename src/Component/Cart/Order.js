@@ -31,7 +31,7 @@ export default function Order() {
         <li>Termék neve:</li>
         <li>Termék ára:</li>
         <li>Darabszám:</li>
-        <li>Részössz:</li>
+        <li>Részösszeg:</li>
         <li>Végösszeg:</li>
       </ul>
       {order.map(item => <ul>

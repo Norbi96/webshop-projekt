@@ -22,8 +22,8 @@ export default function Cart() {
     <div className='cart'>
       <div className='exit-cart'><button onClick={() => setIsOpenCart(!isOpenCart)}>x</button></div>
       <br />
-      {cart.length > 0 ? <p>{badge} item in the cart</p> : <p>cart is empty</p>}
-      {cart.length > 0 && <InCart />}
+      {badge > 0 ? <p>{badge} {badge > 1 ? 'items' : 'item'} in the cart</p> : <p>cart is empty</p>}
+      {badge > 0 && <InCart />}
     </div>
   )
 }

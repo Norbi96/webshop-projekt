@@ -4,20 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <div className='footer'>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
-      <Link to="/">Link</Link>
+      <Link to={'/'}>@ 2023</Link>
     </div>
   )
 }

@@ -3,11 +3,14 @@ import { NavLink } from 'react-router-dom'
 import Badge from './Badge'
 import { badgeContext } from './BadgeContext'
 import { cartOpen } from './Cart/CartOpen'
+import { loggedContext } from './LoggedContext'
+import LoggedOut from './Cart/LoggedOut'
+import LoggedIn from './Cart/LoggedIn'
 
 export default function Header() {
   const { badge, setBadge } = useContext(badgeContext)
   const { isOpenCart, setIsOpenCart } = useContext(cartOpen)
-
+  const { isLoggedIn, setIsLoggedIn } = useContext(loggedContext)
 
   return (
     <div className='header'>
@@ -26,6 +29,8 @@ export default function Header() {
         </Badge>
 
       </nav>
+      {!isLoggedIn && <LoggedOut />}
+      {isLoggedIn && <LoggedIn />}
 
     </div>
   )

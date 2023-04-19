@@ -20,7 +20,7 @@ import './css/mobile.css'
 import Order from './Component/Cart/Order';
 import { orderContext } from './Component/Cart/OrderContext';
 import OrderCompleted from './Component/Cart/OrderCompleted';
-
+import { loggedContext } from './Component/LoggedContext';
 
 const router = createBrowserRouter([
   {
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
 ])
 function App() {
 
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [todos, setTodos] = useState([])
   const [products, setProducts] = useState([
     { id: 1, name: "Teszt 1", price: 3000, quantity: 18, imgsrc: 'https://picsum.photos/250/200' },
@@ -119,21 +119,23 @@ function App() {
 
 
   return (
-    <orderContext.Provider value={{ order, setOrder }}>
-      <badgeContext.Provider value={{ badge, setBadge }}>
-        <cartTotalContext.Provider value={{ total, setTotal }}>
-          <cartContext.Provider value={{ cart, setCart }}>
-            <cartOpen.Provider value={{ isOpenCart, setIsOpenCart }}>
-              <productContext.Provider value={{ products, setProducts }}>
-                <todosContext.Provider value={{ todos, setTodos }}>
-                  <RouterProvider router={router} />
-                </todosContext.Provider>
-              </productContext.Provider>
-            </cartOpen.Provider>
-          </cartContext.Provider>
-        </cartTotalContext.Provider>
-      </badgeContext.Provider>
-    </orderContext.Provider>
+    <loggedContext.Provider value={{ isLoggedIn, setIsLoggedIn }} >
+      <orderContext.Provider value={{ order, setOrder }}>
+        <badgeContext.Provider value={{ badge, setBadge }}>
+          <cartTotalContext.Provider value={{ total, setTotal }}>
+            <cartContext.Provider value={{ cart, setCart }}>
+              <cartOpen.Provider value={{ isOpenCart, setIsOpenCart }}>
+                <productContext.Provider value={{ products, setProducts }}>
+                  <todosContext.Provider value={{ todos, setTodos }}>
+                    <RouterProvider router={router} />
+                  </todosContext.Provider>
+                </productContext.Provider>
+              </cartOpen.Provider>
+            </cartContext.Provider>
+          </cartTotalContext.Provider>
+        </badgeContext.Provider>
+      </orderContext.Provider>
+    </loggedContext.Provider>
 
   );
 }
